@@ -17,7 +17,7 @@
 
         <H2>Table one</H2>
 
-        <table>
+        <!-- <table>
             <tr>
                 <td>Dhaka</td>
                 <td>Khulna</td>
@@ -30,27 +30,27 @@
                 <td>Chapai</td>
                 <td>Kurigram</td>
             </tr>
-        </table>
+        </table> -->
 
         <H2>Table two</H2>
         <table>
-            <therd>
+            <thead>
                 <tr>
                     <th>Name</th>
                     <th>Address</th>
                     <th>Contact</th>
                 </tr>
-            </therd>
+            </thead>
             <tbody>
                 <tr>
                     <td>Khalid Mahmud</td>
-                    <td>Shamoli</td>
-                    <td>+88019</td>
+                    <td>Shymoli</td>
+                    <td>+8801403001026</td>
                 </tr>
                 <tr>
                     <td>Sabbir Hasan</td>
                     <td>Gabtoli</td>
-                    <td>+88015</td>
+                    <td>+8801791501045</td>
                 </tr>
             </tbody>
             <tfoot>
@@ -63,17 +63,18 @@
         <br>
 
         <h2>Test Form</h2>
-        <form action="" method="post"> // post method is used to send data to the server
-                <input type="text" name="Full Name" placeholder="Enter your name">
-                <input type="number" name="Age" placeholder="Enter your age">
-                <input type="email" name="Email" placeholder="Enter your email">
-                <input type="password" name="Password" placeholder="Enter your password">
-                <select name="Gender" id="">
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
-                    <option value="other">Other</option>
-                </select>
-                <br>
+        <form action="" method="post" enctype="multipart/form-data"> <!-- post method is used to send data to the server -->
+            <input type="text" name="fullname" placeholder="Enter your name">
+            <input type="number" name="age" placeholder="Enter your age">
+            <input type="file" name="picture" placeholder="Give your picture">
+            <input type="email" name="email" placeholder="Enter your email">
+            <input type="password" name="password" placeholder="Enter your password">
+            <select name="gender" id="">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
+            <br>
             <input type="submit" value="Submit">
         </form>
     </body>

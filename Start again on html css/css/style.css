@@ -21,3 +21,17 @@ tfoot{
     text-align: end;
     font-style: italic;
 }
+/* Add this to your style.css */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* space between fields */
+}
+
+form label,
+form input,
+form textarea,
+form select,
+form button {
+    width: 100%; /* optional: makes fields full width */
+}
