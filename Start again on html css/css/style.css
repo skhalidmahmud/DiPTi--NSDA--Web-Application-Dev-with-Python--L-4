@@ -8,3 +8,11 @@ p{
     color: black;
     background-color: aqua;
 }
+tr, td{
+    color: white;
+    border: 1px solid black;
+    padding: 3px;
+}
+/* table{
+    border: 1px solid blue;
+} */
