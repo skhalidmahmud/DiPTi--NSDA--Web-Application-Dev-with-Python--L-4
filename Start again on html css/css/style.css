@@ -13,6 +13,11 @@ tr, td{
     border: 1px solid black;
     padding: 3px;
 }
-/* table{
-    border: 1px solid blue;
-} */
+table{
+    width: 100%;
+}
+tfoot{
+    font-size: .8em;
+    text-align: end;
+    font-style: italic;
+}
