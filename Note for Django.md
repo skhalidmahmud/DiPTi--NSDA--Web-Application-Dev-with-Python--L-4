@@ -12,3 +12,7 @@ activate
 ```bash
 pip install django
 ```
+> create project
+```py
+django-admin startproject myProject
+```
