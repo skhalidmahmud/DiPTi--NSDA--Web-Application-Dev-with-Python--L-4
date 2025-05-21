@@ -16,3 +16,7 @@ pip install django
 ```py
 django-admin startproject myProject
 ```
+> for running runserver
+```py
+python manage.py runserver
+```
