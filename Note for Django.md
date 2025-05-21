@@ -6,5 +6,9 @@ python -m venv myEnv
 - on Script folder
 > //..\myEnv\Scripts>activate
 ```bash
-- activate
+activate
+```
+> install django (same on <b>Scripts</b> dir)
+```bash
+pip install django
 ```
