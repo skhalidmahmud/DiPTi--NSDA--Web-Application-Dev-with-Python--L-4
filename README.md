@@ -1,29 +1,3 @@
-<!-- > After install/checking py is available! and make a dir (mkdir)
-
-```bash
-python -m venv myEnv
-```
-- on Script folder
-> //..\myEnv\Scripts>activate
-```bash
-activate
-```
-> install django (same on <b>Scripts</b> dir)
-```bash
-pip install django
-```
-> create project (on myenv)
-```py
-django-admin startproject myProject
-```
-> for running runserver
-```py
-python manage.py runserver
-``` -->
-
-
-
-
 # DiPTi - NSDA Web Application with Python (Level 4)
 
 This is a Django-based web application developed for the **DiPTi & NSDA Skill Development Program (Level 4)**. It demonstrates core backend and frontend development concepts including authentication, CRUD operations, database handling, and responsive UI.
