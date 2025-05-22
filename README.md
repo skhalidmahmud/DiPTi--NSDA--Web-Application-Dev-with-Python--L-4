@@ -24,8 +24,6 @@ python manage.py runserver
 
 
 
-
-````markdown
 # DiPTi - NSDA Web Application with Python (Level 4)
 
 This is a Django-based web application developed for the **DiPTi & NSDA Skill Development Program (Level 4)**. It demonstrates core backend and frontend development concepts including authentication, CRUD operations, database handling, and responsive UI.
@@ -39,7 +37,7 @@ This is a Django-based web application developed for the **DiPTi & NSDA Skill De
 ```bash
 git clone https://github.com/skhalidmahmud/DiPTi--NSDA--Web-Application-Dev-with-Python--L-4.git
 cd DiPTi--NSDA--Web-Application-Dev-with-Python--L-4
-````
+```
 
 ---
 
