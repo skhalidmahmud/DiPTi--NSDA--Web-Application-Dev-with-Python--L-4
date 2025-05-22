@@ -1,11 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact | Khalid Mahmud</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f0f0f0;
+      color: #333;
+      padding: 20px;
+    }
+
+    nav {
+      background-color: #222;
+      color: #fff;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 15px;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1rem;
+    }
+
+    nav ul li a:hover {
+      text-decoration: underline;
+    }
+
+    .contact-section {
+      max-width: 600px;
+      margin: 60px auto 0;
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .contact-section h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .contact-info p {
+      margin-bottom: 10px;
+      font-size: 1rem;
+    }
+
+    .contact-info a {
+      color: #0073e6;
+      text-decoration: none;
+    }
+
+    .contact-info a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 60px;
+      color: #777;
+      font-size: 0.9rem;
+    }
+  </style>
 </head>
 <body>
-    <p>You are now on Contact Page</p>
+  <nav>
+    <div class="logo">Khalid Mahmud</div>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section class="contact-section">
+    <h1>Contact Me</h1>
+    <div class="contact-info">
+      <p><strong>Email:</strong> <a href="mailto:skhalidmahmud1@gmail.com">skhalidmahmud1@gmail.com</a></p>
+      <p><strong>Phone:</strong> +880 1403-001026</p>
+      <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/skhalidmahmud" target="_blank">linkedin.com/in/skhalidmahmud</a></p>
+      <p><strong>Address:</strong> 176/A/1 North Shyamoli, Road No: 2, Dhaka 1207, Bangladesh</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Khalid Mahmud. All rights reserved.</p>
+  </footer>
 </body>
 </html>
