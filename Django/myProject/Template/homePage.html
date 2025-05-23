@@ -1,116 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Home | Khalid Mahmud</title>
+  <meta charset="UTF-8">
+  <title>Animated Background + Content</title>
   <style>
-    * {
+    html, body {
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
+      height: 100%;
+      background: #000;
+      font-family: sans-serif;
+      color: white;
     }
 
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #f0f0f0;
-      color: #333;
-      padding: 20px;
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      pointer-events: none;
     }
 
-    nav {
-      background-color: #222;
-      color: #fff;
-      padding: 15px 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    nav .logo {
-      font-size: 1.5rem;
-      font-weight: bold;
-    }
-
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 15px;
-    }
-
-    nav ul li a {
-      color: #fff;
-      text-decoration: none;
-      font-size: 1rem;
-    }
-
-    nav ul li a:hover {
-      text-decoration: underline;
-    }
-
-    .hero {
-      text-align: center;
-      margin-top: 60px;
-    }
-
-    .hero h1 {
-      font-size: 3rem;
-      margin-bottom: 10px;
-    }
-
-    .hero p {
-      font-size: 1.2rem;
-      color: #666;
-    }
-
-    .buttons {
-      margin-top: 20px;
-    }
-
-    .buttons a {
-      display: inline-block;
-      margin: 10px;
-      padding: 10px 20px;
-      background-color: #0073e6;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 5px;
-    }
-
-    .buttons a:hover {
-      background-color: #005bb5;
-    }
-
-    footer {
-      text-align: center;
-      margin-top: 80px;
-      color: #777;
-      font-size: 0.9rem;
+    .content {
+      position: relative;
+      z-index: 1;
+      padding: 40px;
     }
   </style>
 </head>
 <body>
-  <nav>
-    <div class="logo">Khalid Mahmud</div>
-    <ul>
-      <li><a href="#">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#portfolio">Portfolio</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
+  <canvas id="interactiveCanvas"></canvas>
 
-  <section class="hero">
-    <h1>Welcome to My Homepage</h1>
-    <p>Exploring code, creating solutions, and learning every day.</p>
-    <div class="buttons">
-      <a href="#portfolio">View Portfolio</a>
-      <a href="#contact">Contact Me</a>
-    </div>
-  </section>
+  <div class="content">
+    <h1>Hello World</h1>
+    <p>This content is on top of the animated background.</p>
+    <h2>Everything should now work perfectly!</h2>
+  </div>
 
-  <footer>
-    <p>&copy; 2025 Khalid Mahmud. All rights reserved.</p>
-  </footer>
+  <script>
+    const canvas = document.getElementById('interactiveCanvas');
+    const ctx = canvas.getContext('2d');
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+
+    let lastX = null;
+    let lastY = null;
+
+    document.addEventListener('mousemove', (e) => {
+      const x = e.clientX;
+      const y = e.clientY;
+
+      if (lastX !== null && lastY !== null) {
+        ctx.strokeStyle = '#00ffff';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(lastX, lastY);
+        ctx.lineTo(x, y);
+        ctx.stroke();
+      }
+
+      lastX = x;
+      lastY = y;
+    });
+
+    document.addEventListener('mouseleave', () => {
+      lastX = null;
+      lastY = null;
+    });
+
+    function animate() {
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      requestAnimationFrame(animate);
+    }
+    animate();
+  </script>
 </body>
 </html>
