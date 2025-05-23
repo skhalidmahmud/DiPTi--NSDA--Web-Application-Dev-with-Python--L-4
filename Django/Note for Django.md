@@ -110,3 +110,16 @@ python manage.py runserver
 ### 1. 
 
 ### 2. 
+
+
+
+
+
+# test
+
+<details>
+<summary>Making environment more useful</summary>
+- fast
+- 2nd
+
+</details>
