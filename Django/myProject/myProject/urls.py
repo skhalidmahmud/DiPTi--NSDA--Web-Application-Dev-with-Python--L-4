@@ -1,3 +1,4 @@
+"""
 from django.contrib import admin
 from django.urls import path
 
@@ -8,3 +9,4 @@ urlpatterns = [
     path('portfolio/', portfolio, name='portfolio'),
     path('contact/', contact, name='contact'),
 ]
+```
