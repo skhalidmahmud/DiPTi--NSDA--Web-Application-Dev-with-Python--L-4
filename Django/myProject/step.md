@@ -83,9 +83,8 @@
 >⚠️ WARNING: <b>*1. First step, 2. Superuser, 3. App create*</b> REQUIRED before this.
 
 <details>
-<summary>Django App create</summary>
+<summary>Table creation Django App</summary>
 
 
 
 </details>
-rgitdg cv78wr98
