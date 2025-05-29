@@ -1,0 +1,25 @@
+{% extends "master.html" %}
+
+
+{% block body %}
+
+<h1>All available Books on store</h1>
+
+<table id="customers">
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Address</th>
+    <th>Phone</th>
+  </tr>
+  {% for user in users %}
+  <tr>
+    <td>{{ user.name }}</td>
+    <td>{{ user.email }}</td>
+    <td>{{ user.address }}</td>
+    <td>{{ user.phone }}</td>
+  </tr>
+  {% endfor %}
+</table>
+
+{% endblock body %}
