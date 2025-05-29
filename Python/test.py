@@ -1,4 +1,3 @@
-b = "6"
-d = '9.88'
+color_name = ["Green", "Blue", "White", "Orange", "Purple", "Lime", "Lavender"]
 
-print(int(b)+int(d))
+print(color_name[2:4])
