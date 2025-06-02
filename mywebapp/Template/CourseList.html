@@ -1,0 +1,51 @@
+{% extends 'master.html' %}
+
+{% block body %}
+
+
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+
+<h2>Course List</h2>
+<a href="{% url 'AddCourse' %}">Add Course</a>
+<table>
+  <tr>
+    <th>Course Name</th>
+    <th>Course Number</th>
+    <th>Course Credit</th>
+    <th>Course Duration</th>
+    <th>Actions</th>
+  </tr>
+
+{% for i in courseList %}
+  <tr>
+    <td>{{i.Course_Name}}</td>
+    <td>{{i.Course_Number}}</td>
+    <td>{{i.Course_Credit}}</td>
+    <td>{{i.Course_Duration}}</td>
+    <td>
+      <a href="">Edit</a>
+      <a href="{% url 'DeleteCourse' i.id %}">Delete</a>
+      <a href="">View</a>
+    </td>
+  </tr>
+{% endfor %}
+
+</table>
+
+{% endblock body %}

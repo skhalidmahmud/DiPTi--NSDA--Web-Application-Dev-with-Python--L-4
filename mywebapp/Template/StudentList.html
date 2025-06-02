@@ -1,0 +1,51 @@
+{% extends 'master.html' %}
+
+{% block body %}
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+
+<h2>Student List</h2>
+<a href="{% url 'AddStudent' %}">Add Student</a>
+
+<table>
+  <tr>
+    <th>Student Name</th>
+    <th>Department</th>
+    <th>City</th>
+    <th>Age</th>
+    <th>Actions</th>
+  </tr>
+
+{% for i in studentList %}
+
+  <tr>
+    <td>{{i.Student_Name}}</td>
+    <td>{{i.Department_Name}}</td>
+    <td>{{i.City_Name}}</td>
+    <td>{{i.Student_Age}}</td>
+    <td>
+      <a href="{% url 'EditStudent' i.id %}">Edit</a>
+      <a href="{% url 'DeleteStudent' i.id %}">Delete</a>
+      <a href="">View</a>
+    </td>
+  </tr>
+  {% endfor %}
+
+</table>
+
+{% endblock body %}

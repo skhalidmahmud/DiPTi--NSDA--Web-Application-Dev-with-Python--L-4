@@ -1,0 +1,104 @@
+{% extends 'master.html' %}
+
+{% block body %}
+
+  <style>
+   
+
+    .container {
+      max-width: 600px;
+      margin: 40px auto;
+      background-color: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      text-align: center;
+      color: #0073e6;
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+
+    input[type="radio"] {
+      width: auto;
+      margin-right: 5px;
+    }
+
+    .radio-group {
+      display: flex;
+      gap: 15px;
+    }
+
+    button {
+      background-color: #0073e6;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    button:hover {
+      background-color: #005bb5;
+    }
+
+    .form-note {
+      font-size: 13px;
+      color: #666;
+      margin-top: 10px;
+    }
+  </style>
+  <div class="container">
+    <h2>Edit Form</h2>
+    
+    <form action=" "method="POST">
+        {% csrf_token %}
+      <div class="form-group">
+        <label for="studentName">Full Name</label>
+        <input type="text" id="studentName" value="{{student.Student_Name}}" name="studentName" required />
+      </div>
+
+      <div class="form-group">
+        <label for="departmentName">Department</label>
+        <input type="text" id="departmentName" value="{{student.Department_Name}}" name="departmentName" required />
+      </div>
+
+      <div class="form-group">
+        <label for="city">City</label>
+        <input type="text" id="city" value="{{student.City_Name}}" name="city" required />
+      </div>
+
+      <div class="form-group">
+       <label for="studentAge">Student Age</label>
+        <input type="number" id="studentAge" value="{{student.Student_Age}}" name="studentAge" min="1" max="100" required />
+      </div>
+
+      
+    <div>
+      <button type="submit">Submit</button>
+      <p class="form-note">All fields are required.</p>
+    </form>
+  </div>
+{% endblock body %}
