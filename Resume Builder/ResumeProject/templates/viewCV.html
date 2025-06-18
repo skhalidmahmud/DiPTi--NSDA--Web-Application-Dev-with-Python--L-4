@@ -1,0 +1,114 @@
+{% extends "master.html" %}
+
+{% block body %}
+
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    background-color: #eef2f7;
+    margin: 0;
+    padding: 0;
+    }
+
+    .resume-container {
+    max-width: 800px;
+    background-color: white;
+    margin: 40px auto;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .profile-section {
+    text-align: center;
+    margin-bottom: 30px;
+    }
+
+    .profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #007bff;
+    margin-bottom: 10px;
+    }
+
+    .section {
+    margin-bottom: 20px;
+    }
+
+    .section h2 {
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 5px;
+    color: #333;
+    }
+
+    .buttons {
+    text-align: center;
+    margin-top: 20px;
+    }
+
+    .buttons button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    }
+
+    .buttons button:hover {
+    background-color: #0056b3;
+    }
+
+</style>
+
+
+<div class="resume-container">
+    <div class="profile-section">
+        <img src="{{data.image.url}}" alt="Profile Picture" class="profile-img">
+        <h1>{{data.name}}</h1>
+        <p>Email: {{data.email}}</p>
+        <p>Phone: {{data.phone}}</p>
+        <p>Address: {{data.adress}}</p>
+    </div>
+
+    <div class="section">
+        <h2>{{data.summary}}</h2>
+        <p>A passionate web developer with strong problem-solving skills and 3 years of experience in Python and Django development.</p>
+    </div>
+
+    <div class="section">
+        <h2>Education</h2>
+        <p><strong>{{data.Degree}}</strong><br>{{data.institute}}, {{data.yearOfGraduation}}</p>
+    </div>
+
+    <div class="section">
+        <h2>Experience</h2>
+        <p><strong>{{data.position}}</strong><br>{{data.companyName}}, {{data.yearOfExperience}} Years</p>
+    </div>
+
+    <div class="section">
+        <h2>Skills</h2>
+        <p>{{data.skills}}</p>
+    </div>
+
+    <div class="section">
+        <h2>Hobbies</h2>
+        <p>{{data.hobbies}}</p>
+    </div>
+
+    <div class="section">
+        <h2>Achievements</h2>
+        <p>{{data.achievements}}</p>
+    </div>
+
+    <div class="buttons">
+        <a href="{% url 'editCV' data.id%}"><button>Edit</button></a> 
+        <a href="{% url 'deleteCV' data.id%}"><button>Delete</button></a>
+    </div>
+</div>
+
+{% endblock body %}

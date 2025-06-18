@@ -1,0 +1,59 @@
+{% extends "master.html" %}
+
+{% block body %}
+
+<style>
+    #customers {
+        font-family: Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    #customers td, #customers th {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+
+    #customers tr:nth-child(even){background-color: #f2f2f2;}
+
+    #customers tr:hover {background-color: #ddd;}
+
+    #customers th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: #04AA6D;
+        color: white;
+    }
+    img {
+        height: 50px;
+    }
+</style>
+
+<h1>CV Parson in Table</h1>
+
+<table id="customers">
+  <tr>
+    <th>Full Name</th>
+    <th>Photo</th>
+    <th>Email</th>
+    <th>Phone</th>
+    <th>Action</th>
+  </tr>
+  {% for i in data %}
+  <tr>
+    <td>{{i.name}}</td>
+    <td><img src="/{{i.image}}" alt=""></td>
+    <td>{{i.email}}</td>
+    <td>{{i.phone}}</td>
+    <td>
+        <a href="{% url 'editCV' i.id %}">Edit</a> |
+        <a href="{% url 'deleteCV' i.id %}">Delete</a> |
+        <a href="{% url 'viewCV' i.id %}">View</a>
+    </td>
+  </tr>
+  {% endfor %}
+</table>
+
+
+{% endblock body %}

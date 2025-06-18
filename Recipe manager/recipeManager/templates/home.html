@@ -1,0 +1,32 @@
+{% extends "master.html" %}
+
+{% block body %}
+
+<style>
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 40%;
+  }
+
+  .card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
+
+  .container {
+    padding: 2px 16px;
+  }
+</style>
+
+<h2>Recipe List</h2>
+{% for i in data %}
+<div class="card">
+  {% load static %}
+  <img src="{{ i.image.url }}" alt="{{i.title}}" style="width:100px">
+  <div class="container">
+    <h4><b>{{ i.title }}</b></h4>
+    <p>{{ i.ingredients }}</p>
+  </div>
+</div>
+{% endfor %}
+{% endblock body %}

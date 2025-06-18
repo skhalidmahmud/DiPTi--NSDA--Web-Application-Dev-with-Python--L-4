@@ -1,0 +1,95 @@
+{% extends "master.html" %}
+
+{% block body %}
+
+<style>
+    input[type=text], input[type=file], input[type=email], input[type=number] ,textarea, select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    }
+
+    input[type=submit] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    }
+
+    input[type=submit]:hover {
+    background-color: #45a049;
+    }
+
+    div {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    }
+</style>
+
+
+<h3>Edit Data</h3>
+
+<div>
+  <form action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <label for="name">Full Name</label>
+    <input type="text" id="name" name="name" placeholder="Your full name..">
+    
+    <label for="image">Add Image</label>
+    <input type="file" id="image" name="image">
+
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" placeholder="Enter your valid email">
+
+    <label for="phone">Phone</label>
+    <input type="text" id="phone" name="phone" placeholder="Enter your phone number">
+
+    <label for="adress">Adress</label>
+    <textarea name="adress" id="adress" placeholder="Enter your full adress"></textarea>
+
+    <label for="summary">Summary</label>
+    <textarea name="summary" id="summary" placeholder="Enter your short personal objective"></textarea>
+
+    <label for="Degree">Degree</label>
+    <input type="text" id="Degree" name="Degree" placeholder="Enter your Degree">
+
+    <label for="institute">Institute</label>
+    <input type="text" id="institute" name="institute" placeholder="Enter your institute name">
+
+    <label for="yearOfGraduation">Year Of Graduation</label>
+    <input type="number" id="yearOfGraduation" name="yearOfGraduation" placeholder="Enter your Year Of Graduation">
+
+    <label for="companyName">CompanyName</label>
+    <input type="text" id="companyName" name="companyName" placeholder="Enter your current company Name">
+
+    <label for="position">Position</label>
+    <input type="text" id="position" name="position" placeholder="Enter your position on your company">
+
+    <label for="yearOfExperience">Year Of Experience</label>
+    <input type="text" id="yearOfExperience" name="yearOfExperience" placeholder="Enter your Experience of Year | Ex: 1 Year">
+
+    <label for="skills">Skills</label>
+    <textarea name="skills" id="skills" placeholder="Enter your skills"></textarea>
+
+    <label for="hobbies">Hobbies</label>
+    <textarea name="hobbies" id="hobbies" placeholder="Enter your hobbies"></textarea>
+
+    <label for="achievements">Achievements</label>
+    <textarea name="achievements" id="achievements" placeholder="Enter your Achievements"></textarea>
+
+  
+    <input type="submit" value="Submit">
+  </form>
+</div>
+
+
+{% endblock body %}
