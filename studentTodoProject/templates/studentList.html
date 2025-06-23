@@ -1,0 +1,95 @@
+{% extends "master.html" %}
+
+{% block title %}
+Student List
+{% endblock title %}
+
+{% block body %}
+<style>
+    .dashboard-container {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 0 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    }
+
+    .dashboard-container h1 {
+        text-align: center;
+        margin-bottom: 30px;
+        color: #444;
+        font-weight: 700;
+    }
+
+    .tasks-section h2 {
+        margin-bottom: 15px;
+        border-bottom: 2px solid #333;
+        padding-bottom: 8px;
+    }
+
+    .tasks-table {
+        width: 100%;
+        border-collapse: collapse;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .tasks-table thead {
+        background-color: #333;
+        color: white;
+    }
+
+    .tasks-table th, 
+    .tasks-table td {
+        padding: 12px 15px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .tasks-table tbody tr:hover {
+        background-color: #f1f1f1;
+        cursor: pointer;
+    }
+
+    .tasks-table tbody tr:nth-child(even) {
+        background-color: #fafafa;
+    }
+</style>
+<div class="dashboard-container">
+    <h1>Here Have All Students</h1>
+    <section class="tasks-section">
+        <h2>Your Tasks</h2>
+        <a href="addToDo"><h3>Add New Student</h3></a>
+        <table class="tasks-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Roll No</th>
+                    <th>Department</th>
+                    <th>Image</th>
+                    <th>Created Time</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for student in students %}
+                <tr>
+                    <td>{{ student.title }}</td>
+                    <td>{{ student.description }}</td>
+                    <td>{{ student.status }}</td>
+                    <td>{{ student.due_date|date:"M d, Y" }}
+                    <td>{{ student. }}</td>
+                    </td>
+                    <td>
+                        <a href="{% url 'editTodo' task.id %}">Edit</a> |
+                        <a href="{% url 'deleteToDo' task.id %}">Delete</a>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr><td colspan="4">No tasks available.</td></tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </section>
+</div>
+
+{% endblock body %}

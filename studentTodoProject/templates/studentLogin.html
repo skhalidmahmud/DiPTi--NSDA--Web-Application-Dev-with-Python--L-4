@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Login</title>
+  <style>
+    /* Login page styles */
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7f7f7;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .login-container {
+      background: white;
+      padding: 2rem 3rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      width: 350px;
+      text-align: center;
+    }
+
+    .login-container h2 {
+      margin-bottom: 1.5rem;
+      color: #333;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+    }
+
+    label {
+      margin-bottom: 0.3rem;
+      font-weight: 600;
+      color: #555;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      padding: 0.6rem;
+      margin-bottom: 1.2rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1rem;
+      transition: border-color 0.3s;
+    }
+
+    input[type="text"]:focus,
+    input[type="password"]:focus {
+      border-color: #4a90e2;
+      outline: none;
+    }
+
+    button {
+      background-color: #4a90e2;
+      color: white;
+      padding: 0.75rem;
+      border: none;
+      border-radius: 5px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #357ab8;
+    }
+
+    .signup-link {
+      margin-top: 1.2rem;
+      font-size: 0.9rem;
+      color: #666;
+      text-align: center;
+    }
+
+    .signup-link a {
+      color: #4a90e2;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .signup-link a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <h2>Login</h2>
+    <form action="" method="POST">
+        {% csrf_token %}
+      <label for="username">Username</label>
+      <input type="text" id="username" name="username" required />
+
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" required />
+
+      <button type="submit">Login</button>
+    </form>
+    <p class="signup-link">
+      Don't have an account?
+      <a href="{% url 'studentSignUp' %}">Sign up here</a>
+    </p>
+  </div>
+</body>
+</html>
