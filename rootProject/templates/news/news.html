@@ -1,0 +1,33 @@
+{% extends "master.html" %}
+
+{% block title %}News | Portal{% endblock title %}
+{% block nav %}class="active"{% endblock nav %}
+{% block body %}
+<h1 style="text-align: center; margin-top: 20px;">Latest News</h1>
+<a href="{% url 'add_news' %}" style="text-align: center; display: block;"><h2>Add News Article</h2></a>
+
+<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; padding: 30px;">
+    {% for article in news %}
+    <div style="width: 300px; background-color: white; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); overflow: hidden;">
+        {% if article.thumbnailImage %}
+            <img src="{{ article.thumbnailImage.url }}" style="width: 100%; height: 180px; object-fit: cover;">
+        {% else %}
+            <div style="height: 180px; background: #eee; display: flex; align-items: center; justify-content: center;">No Image</div>
+        {% endif %}
+        <div style="padding: 15px;">
+            <h3>{{ article.title }}</h3>
+            <p><strong>By:</strong> {{ article.authorName }}</p>
+            <p><strong>Date:</strong> {{ article.publishedDate|date:"Y-m-d H:i" }}</p>
+            <p>{{ article.content|truncatechars:100 }}</p>
+            <div style="text-align: right;">
+                <a href="{% url 'view_news' article.id %}">View</a> |
+                <a href="{% url 'edit_news' article.id %}">Edit</a> |
+                <a href="{% url 'delete_news' article.id %}">Delete</a>
+            </div>
+        </div>
+    </div>
+    {% empty %}
+        <p style="text-align: center;">No news available.</p>
+    {% endfor %}
+</div>
+{% endblock body %}

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Project Home</title>
+    <style>
+        /* Page-specific styling (does NOT affect nav CSS elsewhere) */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+
+        .main-container {
+            text-align: center;
+            margin-top: 100px;
+        }
+
+        h1, h2 {
+            font-size: 36px;
+            color: #333;
+            margin-bottom: 50px;
+        }
+
+        .project-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+
+        .project-btn {
+            padding: 15px 30px;
+            background-color: #04AA6D;
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            border-radius: 8px;
+            transition: background 0.3s ease;
+        }
+
+        .project-btn:hover {
+            background-color: #038e5a;
+        }
+
+        .auth-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .auth-btn {
+            padding: 10px 25px;
+            background-color: #555;
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            border-radius: 6px;
+            transition: background 0.3s ease;
+        }
+
+        .auth-btn:hover {
+            background-color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <h1>Django Project Hub</h1>
+        {% if user.is_authenticated %}
+            <h2>Welcome, <dev style="color: rgb(40, 226, 167);">{{ user.username }}</dev></h2>
+        {% else %}
+            <h2>Welcome, Guest!</h2>
+            <p>If you want to see apps, then must need login first.</p>
+        {% endif %}
+
+        <div class="project-buttons">
+            <a href="/book/" class="project-btn">Book App</a>
+            <a href="{% url 'recipe' %}" class="project-btn">Recipe App</a>
+            <a href="{% url 'news_home' %}" class="project-btn">News Portal</a>
+        </div>
+
+        <div class="auth-buttons">
+            {% if user.is_authenticated %}
+                <a href="{% url 'logOut' %}" class="auth-btn">Logout</a>
+            {% else %}
+                <a href="{% url 'SignUp' %}" class="auth-btn">SignUp</a>
+                <a href="{% url 'Login' %}" class="auth-btn">Login</a>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+{% extends "master.html" %}
+{% block title %}Add News{% endblock title %}
+{% block nav %}class="active"{% endblock nav %}
+{% block body %}
+
+<h1 style="text-align: center; margin-top: 20px;">Add News</h1>
+
+<div style="max-width: 600px; margin: auto; background: white; padding: 30px; border-radius: 10px;">
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label>Title:</label>
+        <input type="text" name="title" required style="width: 100%; padding: 10px; margin-bottom: 10px;">
+
+        <label>Content:</label>
+        <textarea name="content" rows="4" required style="width: 100%; padding: 10px; margin-bottom: 10px;"></textarea>
+
+        <label>Thumbnail Image:</label>
+        <input type="file" name="thumbnailImage" style="margin-bottom: 10px;"><br>
+
+        <label>Published Date:</label>
+        <input type="datetime-local" name="publishedDate" required style="width: 100%; padding: 10px; margin-bottom: 20px;">
+
+        <button type="submit" style="width: 100%; padding: 12px; background: #04AA6D; color: white; border: none; font-size: 16px;">Add</button>
+    </form>
+</div>
+{% endblock body %}

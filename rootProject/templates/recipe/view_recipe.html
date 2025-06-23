@@ -1,0 +1,49 @@
+{% extends "master.html" %}
+
+{% block title %}
+Recipe | View
+{% endblock title %}
+
+{% block nav %}
+class="active"
+{% endblock nav %}
+
+{% block navli %}
+<li><a href="{% url 'recipe' %}">Recipe List</a></li>
+{% endblock navli %}
+
+{% block body %}
+<h1 style="text-align: center; margin-top: 20px;">View Recipe</h1>
+
+<div style="max-width: 600px; margin: 30px auto; background-color: white; padding: 30px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
+
+    <p><strong>Name:</strong><br>
+    <span style="display: block; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">{{ recipes.name }}</span></p>
+
+    <p><strong>Ingredients:</strong><br>
+    <div style="white-space: pre-wrap; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">{{ recipes.ingredients }}</div></p>
+
+    <p><strong>Instructions:</strong><br>
+    <div style="white-space: pre-wrap; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">{{ recipes.instructions }}</div></p>
+
+    <p><strong>Recipe Image:</strong><br>
+    {% if recipes.recipeImage %}
+        <img src="{{ recipes.recipeImage }}" alt="Recipe Image"
+             style="margin-top: 10px; max-width: 100%; height: auto; border-radius: 4px;">
+    {% else %}
+        <span style="display: inline-block; margin-top: 10px;">No image uploaded.</span>
+    {% endif %}
+    </p>
+
+    <p><strong>Creator:</strong><br>
+    <span style="display: block; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">{{ recipes.creator }}</span></p>
+
+    <p><strong>Description:</strong><br>
+    <div style="white-space: pre-wrap; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">{{ recipes.description }}</div></p>
+
+    <p><strong>Created At:</strong><br>
+    <span style="display: block; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+        {{ recipes.createAt|date:'Y-m-d H:i' }}
+    </span></p>
+</div>
+{% endblock body %}

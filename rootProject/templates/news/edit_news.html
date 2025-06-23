@@ -1,0 +1,32 @@
+{% extends "master.html" %}
+{% block title %}Edit News{% endblock title %}
+{% block nav %}class="active"{% endblock nav %}
+{% block body %}
+
+<h1 style="text-align: center; margin-top: 20px;">Edit News</h1>
+
+<div style="max-width: 600px; margin: auto; background: white; padding: 30px; border-radius: 10px;">
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label>Title:</label>
+        <input type="text" name="title" value="{{ news.title }}" required style="width: 100%; padding: 10px; margin-bottom: 10px;">
+
+        <label>Author Name:</label>
+        <input type="text" name="authorName" value="{{ news.authorName }}" required style="width: 100%; padding: 10px; margin-bottom: 10px;">
+
+        <label>Content:</label>
+        <textarea name="content" rows="4" required style="width: 100%; padding: 10px; margin-bottom: 10px;">{{ news.content }}</textarea>
+
+        <label>Thumbnail Image:</label>
+        {% if news.thumbnailImage %}
+            <img src="{{ news.thumbnailImage.url }}" style="width: 100px; height: auto; display: block; margin-bottom: 10px;">
+        {% endif %}
+        <input type="file" name="thumbnailImage" style="margin-bottom: 10px;">
+
+        <label>Published Date:</label>
+        <input type="datetime-local" name="publishedDate" value="{{ news.publishedDate|date:'Y-m-d\\TH:i' }}" required style="width: 100%; padding: 10px; margin-bottom: 20px;">
+
+        <button type="submit" style="width: 100%; padding: 12px; background: #04AA6D; color: white; border: none; font-size: 16px;">Update</button>
+    </form>
+</div>
+{% endblock body %}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            ul {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                overflow: hidden;
+                background-color: #333;
+            }
+
+            li {
+                float: left;
+            }
+
+            li a {
+                display: block;
+                color: white;
+                text-align: center;
+                padding: 14px 16px;
+                height: 25px;
+                text-decoration: none;
+            }
+
+            li a:hover {
+                background-color: #111;
+            }
+            .active {
+                background-color: #04AA6D;
+            }
+            {% block style %}{% endblock style %}
+        </style>
+        <title>
+            {% block title %}
+            
+            {% endblock title %}
+        </title>
+    </head>
+    <body>
+        <ul>
+            <li><a {% block nav %}{% endblock nav %} href="{% url 'index' %}">Home</a></li>
+            <li><p style="color:rgb(30, 255, 0); padding-left: 20px;">User: {{ user.username }}</p></li>
+            {% block navli %}{% endblock navli %}
+            <li><a href="{% url 'logOut' %}">Log Out</a></li>
+        </ul>
+
+        {% block body %}{% endblock body %}
+
+    </body>
+</html>

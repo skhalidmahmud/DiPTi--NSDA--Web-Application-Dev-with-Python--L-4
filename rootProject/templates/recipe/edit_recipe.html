@@ -1,0 +1,42 @@
+{% extends "master.html" %} "
+{% block title %}
+Recipe | Home
+{% endblock title %}
+{% block nav %}
+class="active" 
+{% endblock nav %}
+{% block navli %}
+<li><a href="{% url 'recipe' %}">Recipe List</a></li>
+{% endblock navli %}
+{% block body %}
+<h1 style="text-align: center; margin-top: 20px;">Edit Recipe</h1>
+
+<div style="max-width: 600px; margin: 30px auto; background-color: white; padding: 30px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        
+        <label for="name">Name:</label>
+        <input type="text" name="name" value="{{recipes.name}}" id="name" required style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 4px;">
+
+        <label for="ingredients">Ingredients:</label>
+        <textarea name="ingredients" id="ingredients" rows="3" required style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 4px;">{{recipes.ingredients}}</textarea>
+
+        <label for="instructions">Instructions:</label>
+        <textarea name="instructions" id="instructions" rows="3" required style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 4px;">{{recipes.instructions}}</textarea>
+
+        <img src="{{ recipes.recipeImage }}" alt="Recipe Image"><br>
+        <label for="recipeImage">Recipe Image:</label>
+        <input type="file" name="recipeImage" id="recipeImage" style="margin-bottom: 15px;">
+
+        <label for="creator" style="display: block; margin-bottom: 5px;">Creator:</label>
+        <input type="text" name="creator" value="{{recipes.creator}}" id="creator" required style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 4px;">
+
+        <label for="description">Description:</label>
+        <textarea name="description" id="description" rows="2" required style="width: 100%; padding: 10px; margin-bottom: 20px; border: 1px solid #ccc; border-radius: 4px;">{{recipes.description}}</textarea>
+
+        <button type="submit" style="width: 100%; padding: 12px; background-color: #04AA6D; color: white; border: none; border-radius: 5px; font-size: 18px; cursor: pointer;">
+        Edit Recipe
+        </button>
+    </form>
+</div>
+{% endblock body %}

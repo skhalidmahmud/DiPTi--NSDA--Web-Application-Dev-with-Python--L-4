@@ -1,0 +1,57 @@
+{% extends "master.html" %} "
+{% block title %}
+Recipe | Home
+{% endblock title %}
+{% block nav %}
+class="active" 
+{% endblock nav %}
+{% block body %}
+<h1 style="text-align: center; margin-top: 20px;">Recipe List</h1>
+<a href="{% url 'addRecipe' %}" style="text-align: center;"><h1>Add New Recipe</h1></a>
+<div style="width: 90%; margin: 30px auto;">
+    <table border="1" cellspacing="0" cellpadding="10" style="width: 100%; border-collapse: collapse; background-color: white;">
+        <thead style="background-color: #04AA6D; color: white;">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Ingredients</th>
+                <th>Instructions</th>
+                <th>Image</th>
+                <th>Creator</th>
+                <th>Description</th>
+                <th>Created At</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for recipe in recipes %}
+            <tr>
+                <td>{{ recipe.id }}</td>
+                <td>{{ recipe.name }}</td>
+                <td>{{ recipe.ingredients }}</td>
+                <td>{{ recipe.instructions }}</td>
+                <td>
+                    {% if recipe.recipeImage %}
+                        <img src="{{ recipe.recipeImage }}" alt="Recipe Image" width="80" height="60">
+                    {% else %}
+                        No Image
+                    {% endif %}
+                </td>
+                <td>{{ recipe.creator }}</td>
+                <td>{{ recipe.description }}</td>
+                <td>{{ recipe.createAt }}</td>
+                <td>
+                    <a href="{% url 'view_recipe' recipe.id %}">View</a> |
+                    <a href="{% url 'edit_recipe' recipe.id %}">Edit</a> |
+                    <a href="{% url 'delete_recipe' recipe.id %}">Delete</a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="9" style="text-align: center;">No recipes found.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock body %}
