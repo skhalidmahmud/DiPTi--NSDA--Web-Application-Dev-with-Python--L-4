@@ -1,0 +1,9 @@
+<ul>
+    <li><a href="{% url 'index' %}" class = {% if request.resolver_match.url_name == 'index' %}active{% endif %}>Home</a></li>
+
+    {% if user.userTypes == 'Admin' %}
+    <li><a href="{% url 'updateProfiles' %}" class = {% if request.resolver_match.url_name == 'updateProfiles' %}active{% endif %}>Update Profile</a></li>
+    {% endif %}
+    
+    <li><a href="{% url 'logOut' %}" class = {% if request.resolver_match.url_name == 'logOut' %}active{% endif %}>Log Out</a></li>
+</ul>
