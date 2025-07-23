@@ -1,0 +1,98 @@
+{% extends "master.html" %}
+{% block body %}
+{% load static %}
+
+<style>
+    body {
+        font-family: 'Segoe UI', sans-serif;
+        background-color: #f5f7fa;
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        max-width: fit-content;
+        margin: 40px auto;
+        padding: 20px;
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+        text-align: center;
+        color: #333;
+        margin-bottom: 30px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    th {
+        background-color: #4CAF50;
+        color: white;
+        padding: 12px 15px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    td {
+        padding: 12px 15px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    tbody tr:hover {
+        background-color: #f1f1f1;
+    }
+
+    .no-tasks {
+        text-align: center;
+        color: #999;
+        padding: 20px;
+    }
+</style>
+
+<div class="container">
+    <h1>Your Data List</h1>
+    <table>
+        <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Status</th>
+            <th>Created At</th>
+            <th>Action</th>
+        </tr>
+
+        {% for i in data %}
+        <tr>
+            <td>{{ i.title }}</td>
+            <td>{{ i.description }}</td>
+            <td>{{ i.status }}</td>
+            <td>{{ i.createdAt }}</td>
+            <td>
+                <a href="{% url 'deleteToDo' i.id %}">Delete</a>
+                <a href="{% url 'viewsToDo' i.id %}">Views</a>
+                <a href="{% url 'updateToDo' i.id %}">Edit</a>
+                <!-- ami chai je just completed gulo na (!=) hole dobe
+                and done a click korle model theke status done hoye jabe  -->
+
+                <!-- ``` # model.py
+                def DoneToDo(req,id):
+                    data=toDoModel.objects.get(id=id)
+                    data.status='Completed'
+                    data.save()
+                    return redirect('listToDo')
+                ``` -->
+                {% if i.status != 'completed' %}
+                <a href="{% url 'DoneToDo' %}">Done</a>
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+{% endblock body %}
