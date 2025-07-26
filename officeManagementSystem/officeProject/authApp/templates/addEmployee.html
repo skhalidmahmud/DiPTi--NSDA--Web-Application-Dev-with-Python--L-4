@@ -1,0 +1,150 @@
+{% extends "master.html" %}
+{% block body %}
+{% load static %}
+
+<style>
+    .container {
+        width: 500px;
+        margin: 50px auto;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        padding: 30px;
+    }
+
+    h2 {
+        text-align: center;
+        color: #333;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    label {
+        margin-top: 15px;
+        font-weight: bold;
+        color: #555;
+    }
+
+    input[type="text"],
+    textarea,
+    select {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        margin-top: 5px;
+    }
+
+    textarea {
+        resize: vertical;
+        min-height: 80px;
+    }
+
+    input[readonly] {
+        background-color: #f0f0f0;
+    }
+
+    button {
+        margin-top: 20px;
+        padding: 10px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    button:hover {
+        background-color: #45a049;
+    }
+</style>
+<style>
+    h1 {
+        text-align: center;
+        color: #333;
+    }
+    .signup-container {
+        width: 400px;
+        margin: 40px auto;
+        background: #fff;
+        padding: 30px 40px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .signup-container h2 {
+        text-align: center;
+        margin-bottom: 25px;
+    }
+    .form-group { margin-bottom: 18px; }
+    label { display: block; margin-bottom: 6px; }
+    input[type="text"], input[type="file"], input[type="email"], input[type="password"], textarea, select {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+    textarea { resize: vertical; }
+    button {
+        width: 100%;
+        padding: 10px;
+        background: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        font-size: 16px;
+    }
+    button:hover { background: #0056b3; }
+</style>
+
+<div class="container">
+    <h2>Add New Employee</h2>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <div class="form-group">
+            <label for="username">username</label>
+            <input type="text" name="username" id="username" maxlength="100" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" maxlength="100" required>
+        </div>
+        <div class="form-group">
+            <label for="phone">Phone</label>
+            <input type="text" name="phone" id="phone" maxlength="15" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" name="password1" id="password" required>
+        </div>
+        <div class="form-group">
+            <label for="password2">Confurm Password</label>
+            <input type="password" name="password2" id="password2" required>
+        </div>
+
+        <label for="fullName">Full Name</label>
+        <input type="text" id="fullName" name="fullName" maxlength="100">
+
+        <label for="departmentName">Department Name</label>
+        <input type="text" id="departmentName" name="departmentName" maxlength="50">
+
+        <label for="departmentDescription">Department Description</label>
+        <textarea id="departmentDescription" name="departmentDescription"></textarea>
+
+        <label for="position">Position</label>
+        <textarea id="position" name="position"></textarea>
+
+        <label for="dateofjoining">Date of Joining</label>
+        <input type="date" id="dateofjoining" name="dateofjoining" required>
+
+        <label for="profilePicture">Profile Picture</label>
+        <input type="file" id="profilePicture" name="profilePicture" required>
+
+        <button type="submit">Save</button>
+        
+    </form>
+</div>
+{% endblock body %}

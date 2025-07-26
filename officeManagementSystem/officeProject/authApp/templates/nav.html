@@ -1,0 +1,15 @@
+<ul>
+    {% if user.userTypes == 'Admin' %}
+    <li><a href="{% url 'dashboard_admin' %}" class = {% if request.resolver_match.url_name == 'dashboard_admin' %}active{% endif %}>Home</a></li>
+    <li><a href="{% url 'allEmployee' %}" class = {% if request.resolver_match.url_name == 'allEmployee' %}active{% endif %}>All Employees</a></li>
+    <li><a href="{% url 'addEmployee' %}" class = {% if request.resolver_match.url_name == 'addEmployee' %}active{% endif %}>Add Employee</a></li>
+    {% endif %}
+
+    {% if user.userTypes == 'Employee' %}
+    <li><a href="{% url 'dashboard_employee' %}" class = {% if request.resolver_match.url_name == 'dashboard_employee' %}active{% endif %}>Home</a></li>
+    <!-- <li><a href="{% url 'jobPost' %}" class = {% if request.resolver_match.url_name == 'jobPost' %}active{% endif %}>Jobs</a></li>
+    <li><a href="{% url 'jobApplications' %}" class = {% if request.resolver_match.url_name == 'jobApplications' %}active{% endif %}>Job Applications</a></li> -->
+    {% endif %}
+
+    <li><a href="{% url 'logOut' %}" class = {% if request.resolver_match.url_name == 'logOut' %}active{% endif %}>Log Out</a></li>
+</ul>
